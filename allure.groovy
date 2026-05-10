@@ -7,6 +7,11 @@ import org.htmlunit.html.HtmlPage
 import java.util.regex.Pattern
 import net.sf.json.JSONObject
 
+// HACK HACK HACK HACK - https://github.com/jenkins-infra/crawler/issues/175 (phase 1)
+lib.DataWriter.write("ru.yandex.qatools.allure.jenkins.tools.AllureCommandlineInstaller", JSONObject.fromObject(new File("allure.hack.json").text));
+System.exit(0)
+// End of HACK HACK HACK HACK
+
 def getList() {
     List versions = new ArrayList()
     versions.addAll(getCentralVersions())
