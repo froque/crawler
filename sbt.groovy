@@ -8,6 +8,11 @@ import java.net.URL
 import java.util.regex.Pattern
 import net.sf.json.*
 
+// HACK HACK HACK HACK - https://github.com/jenkins-infra/crawler/issues/175 (phase 1)
+lib.DataWriter.write("org.jvnet.hudson.plugins.SbtPluginBuilder.SbtInstaller", JSONObject.fromObject(new File("sbt.hack.json").text));
+System.exit(0)
+// End of HACK HACK HACK HACK
+
 def listFromMavenRepo() {
     def versions = []
     def url = "https://repo1.maven.org/maven2/org/scala-sbt/sbt/";
