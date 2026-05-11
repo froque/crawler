@@ -7,6 +7,11 @@ import java.util.regex.Pattern
 import net.sf.json.JSONObject
 import hudson.util.VersionNumber
 
+// HACK HACK HACK HACK - https://github.com/jenkins-infra/crawler/issues/175 (phase 1)
+lib.DataWriter.write("hudson.tasks.Maven.MavenInstaller", JSONObject.fromObject(new File("maven.hack.json").text));
+System.exit(0)
+// End of HACK HACK HACK HACK
+
 def getHtmlPage(url) {
     def wc = new WebClient()
     wc.setCssErrorHandler(new org.htmlunit.SilentCssErrorHandler());
